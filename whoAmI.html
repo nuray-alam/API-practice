@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>whoAmI</title>
+  </head>
+  <body>
+    <h3 id="full-name">Name</h3>
+
+    <script>
+      fetch("https://randomuser.me/api/")
+        .then((response) => response.json())
+        .then((data) => {
+          //   console.log(data.results[0].name);
+          const fullName = `${data.results[0].name.title} ${data.results[0].name.first} ${data.results[0].name.last}`;
+          console.log("Full Name:", fullName);
+          document.getElementById("full-name").innerText = fullName;
+        });
+    </script>
+  </body>
+</html>
